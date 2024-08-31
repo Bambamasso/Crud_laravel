@@ -12,15 +12,15 @@
     
    <div class="container">
     <h1 class="p-3  text-center">Ajouter un article</h1>
-       <form action="">
-
+       <form action="{{route('creat')}}" method="post">
+      @csrf
             <div class="mb-2">
                 <label for="exampleFormControlInput1" class="form-label">Nom de l'article</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Nourriture">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nourriture" name="nom">
             </div>
             <div class="mb-2">
                 <label for="exampleFormControlTextarea1" class="form-label">description</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
             </div>
           <input type="submit" class="btn btn-primary">
        </form>

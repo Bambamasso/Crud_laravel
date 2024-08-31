@@ -10,34 +10,35 @@
 </head>
 </head>
 <body>
-
+    @method('DELETE')
  <div class="container text-center">
         <h1 class="p-3">Liste des articles</h1>
         <button class=""><a href="{{route('ajouter')}}" class="btn btn-primary">Ajouter un article</a></button>
-
-
+ @if(session('status'))
+      <div class="alert alert-success">{{session('status')}}</div>
+      @endif
         <div class="mt-4">
             <table class="table">
                   <thead>
                       <tr>
                         <td>Nom</td>
-                        <td>Description</td>
-                        <td>date de creation</td>
                         <td>action</td>
                       </tr>
                   </thead>
+                  @foreach ($donne as $value):
+                  
                   <tbody>
                       <tr>
-                         <td>bamba</td>
-                         <td>nvnfj</td>
-                         <td>12/08/2024</td>
+                         <td>{{$value->nom}}</td>
+                         
                          <td>
-                            <a href="" class="btn btn-info">détails</a>
-                             <a href="" class="btn btn-primary">Modif</a>
-                             <a href="" class="btn btn-danger">Suppr</a>
+                            <a href="{{route('details',$value->id)}}" class="btn btn-info">détails</a>
+                             <a href="{{route('modifier',['id'=>$value->id])}}" class="btn btn-primary">Modif</a>
+                             <a href="{{route('suppression',['id'=>$value->id])}}" class="btn btn-danger">Suppr</a>
                          </td>
                       </tr>
                   </tbody>
+                  @endforeach
             </table>
         </div>
  </div>

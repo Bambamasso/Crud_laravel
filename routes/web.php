@@ -12,17 +12,17 @@ Route::get('/details/{id}', [articlesController::class , 'details'])->name('deta
 
 
 // les routes qui s'occupe de l'ajout
-Route::get('/ajouter/creat', [articlesController::class,'ajouter'])->name('ajouter');
+Route::get('/ajouter', [articlesController::class,'ajouter'])->name('ajouter');
 
-Route::post('/ajouter', [articlesController::class ,'ajouter_traitement'])->name('ajouter.traitement');
+Route::post('/ajouter', [articlesController::class ,'ajouter_traitement'])->name('creat');
 //
 
 //lesroute qui s'occupe de la modiffication
-Route::get('/modifier{id}/edit', [articlesController::class ,'modifier'])->name('modifier');
+Route::get('/modifier/{id}', [articlesController::class ,'modifier'])->name('modifier');
 
-Route::put('/modifier{id}', [articlesController::class ,'modifier_traitement'])->name('modifier.traitement');
+Route::put('/modifier/{id}', [articlesController::class ,'modifier_traitement'])->name('update');
 //
 
 //la route de susppression
-Route::delete('/supprimer{id}',[articlesController::class ,'supprimer'])->name('suppression');
+Route::get('/supprimer/{id}',[articlesController::class ,'supprimer'])->name('suppression');
 
